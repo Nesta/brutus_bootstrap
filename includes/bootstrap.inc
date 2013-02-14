@@ -1,6 +1,6 @@
 <?php
-
 /**
+ * @file
  * A wrapper function for brutus_bootstrap_theme_get_settings().
  * 
  * @param $name
@@ -94,7 +94,7 @@ function brutus_bootstrap_menu_navigation_links($tree, $lvl = 0) {
           $new_item['below'] = brutus_bootstrap_menu_navigation_links($item['below'], $lvl+1);
         }
 
-        $result['menu-'. $item['link']['mlid']] = $new_item;
+        $result['menu-' . $item['link']['mlid']] = $new_item;
       }
     }
   }
@@ -111,8 +111,8 @@ function brutus_bootstrap_menu_navigation_links($tree, $lvl = 0) {
 function brutus_bootstrap_brutus_bootstrap_progress_bar($variables) {
   $variables['attributes']['class'][] = 'progress';
   
-  return "<div". drupal_attributes($variables['attributes']) .">
+  return "<div" . drupal_attributes($variables['attributes']) . ">
   <div class=\"bar\"
-       style=\"width: ". $variables['percent'] ."%;\"></div>
+       style=\"width: " . $variables['percent'] . "%;\"></div>
   </div>";
 }

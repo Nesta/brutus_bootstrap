@@ -1,4 +1,7 @@
 <?php
+/**
+ * @file
+ */
 
 /**
  * Implements hook_form_alter().
@@ -84,7 +87,7 @@ function brutus_bootstrap_form_element(&$variables) {
   $exclude_control = FALSE;
   $control_wrapper = '<div class="controls">';
   // Add bootstrap class
-  if (isset($element['#type']) && ($element['#type'] == "radio" || $element['#type'] == "checkbox")){
+  if (isset($element['#type']) && ($element['#type'] == "radio" || $element['#type'] == "checkbox")) {
     $exclude_control = TRUE;
   }
   else {
@@ -129,13 +132,13 @@ function brutus_bootstrap_form_element(&$variables) {
         $exclude_control = TRUE;
       }
       else {
-        $output = $exclude_control ? $output : $output.$control_wrapper;
+        $output = $exclude_control ? $output : $output . $control_wrapper;
         $output .= ' ' . $prefix . $element['#children'] . $suffix . "\n";
       }
       break;
 
     case 'after':
-      $output = $exclude_control ? $output : $output.$control_wrapper;
+      $output = $exclude_control ? $output : $output . $control_wrapper;
       $variables['#children'] = ' ' . $prefix . $element['#children'] . $suffix;
       $output .= ' ' . theme('form_element_label', $variables) . "\n";
       break;
@@ -143,7 +146,7 @@ function brutus_bootstrap_form_element(&$variables) {
     case 'none':
     case 'attribute':
       // Output no label and no required marker, only the children.
-      $output = $exclude_control ? $output : $output.$control_wrapper;
+      $output = $exclude_control ? $output : $output . $control_wrapper;
       $output .= ' ' . $prefix . $element['#children'] . $suffix . "\n";
       break;
   }
@@ -273,7 +276,7 @@ function brutus_bootstrap_button($variables) {
     return '<input' . drupal_attributes($element['#attributes']) . ">\n"; // This line break adds inherent margin between multiple buttons
   }
   else {
-    return '<button' . drupal_attributes($element['#attributes']) . '>'. $label ."</button>\n"; // This line break adds inherent margin between multiple buttons
+    return '<button' . drupal_attributes($element['#attributes']) . '>' . $label . "</button>\n"; // This line break adds inherent margin between multiple buttons
   }
 }
 

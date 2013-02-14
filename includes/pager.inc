@@ -1,4 +1,7 @@
 <?php
+/**
+ * @file
+ */
 
 /**
  * Returns HTML for a query pager.
@@ -94,7 +97,7 @@ function brutus_bootstrap_pager($variables) {
         if ($i == $pager_current) {
           $items[] = array(
             'class' => array('active'), // Add the active class 
-            'data' => l($i, '#', array('fragment' => '','external' => TRUE)),
+            'data' => l($i, '#', array('fragment' => '', 'external' => TRUE)),
           );
         }
         if ($i > $pager_current) {
@@ -127,7 +130,7 @@ function brutus_bootstrap_pager($variables) {
     }
     */
 
-    return '<div class="pagination pagination-centered">'. theme('item_list', array(
+    return '<div class="pagination pagination-centered">' . theme('item_list', array(
       'items' => $items, 
       //'attributes' => array('class' => array('pager')),
     )) . '</div>';

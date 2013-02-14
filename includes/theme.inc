@@ -1,7 +1,7 @@
 <?php
-/*
+/**
+ * @file
  * Custom theme functions
- *
  */
 
 /**
@@ -85,7 +85,7 @@ function theme_brutus_bootstrap_links($variables) {
         if (count($children) > 0) {
           $link['html'] = TRUE;
           $link['title'] .= ' <span class="caret"></span>';
-          $output .=  '<a' . drupal_attributes($link['attributes']) . ' href="#">'. $link['title'] .'</a>';
+          $output .=  '<a' . drupal_attributes($link['attributes']) . ' href="#">' . $link['title'] . '</a>';
         }
         else {
           // Pass in $link as $options, they share the same keys.
@@ -107,7 +107,7 @@ function theme_brutus_bootstrap_links($variables) {
 
       $i++;
 
-      if(count($children) > 0) {
+      if (count($children) > 0) {
         $attributes = array();
         $attributes['class'] = array('dropdown-menu');
 
@@ -133,18 +133,18 @@ function theme_brutus_bootstrap_btn_dropdown($variables) {
   $variables['attributes']['class'][] = 'btn-group';
   // Type class
   if (isset($variables['type'])) {
-    $type_class = ' btn-'. $variables['type'];
+    $type_class = ' btn-' . $variables['type'];
   }
 
   // Start markup
-  $output = '<div'. drupal_attributes($variables['attributes']) .'>';
+  $output = '<div' . drupal_attributes($variables['attributes']) . '>';
 
   // Ad as string if its not a link
   if (is_array($variables['label'])) {
     $output .= l($variables['label']['title'], $$variables['label']['href'], $variables['label']);
   }
 
-  $output .= '<a class="btn'. $type_class .' dropdown-toggle" data-toggle="dropdown" href="#">';
+  $output .= '<a class="btn' . $type_class . ' dropdown-toggle" data-toggle="dropdown" href="#">';
 
   // Its a link so create one
   if (is_string($variables['label'])) {
@@ -152,7 +152,7 @@ function theme_brutus_bootstrap_btn_dropdown($variables) {
   }
 
   if (is_array($variables['links'])) {
-    $sub_links = theme('links', array('links' => $variables['links'],'attributes' => array('class' => array('dropdown-menu'))));
+    $sub_links = theme('links', array('links' => $variables['links'], 'attributes' => array('class' => array('dropdown-menu'))));
   }
 
   // Finish markup
@@ -302,7 +302,7 @@ function brutus_bootstrap_js_alter(&$js) {
 function _brutus_bootstrap_alter($files, $type) {
   $output = array();
   
-  foreach($files as $key => $value) {
+  foreach ($files as $key => $value) {
     if (isset($files[$key][$type])) {
       foreach ($files[$key][$type] as $file => $name) {
         $output[$name] = FALSE;
@@ -319,7 +319,7 @@ function brutus_bootstrap_preprocess_table(&$variables) {
   }
 
   $variables['attributes']['class'][] = 'table';
-  if(!in_array('table-no-striping', $variables['attributes']['class'])) {
+  if (!in_array('table-no-striping', $variables['attributes']['class'])) {
     $variables['attributes']['class'][] = 'table-striped';
   }
   

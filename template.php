@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains theme override functions and process & preprocess functions
+ */
+
 $theme_path = drupal_get_path('theme', 'brutus_bootstrap');
 require_once $theme_path . '/includes/bootstrap.inc';
 require_once $theme_path . '/includes/theme.inc';
@@ -28,18 +33,6 @@ if (theme_get_setting('brutus_bootstrap_rebuild_registry') && !defined('MAINTENA
  * hook_theme() 
  */
 function brutus_bootstrap_theme(&$existing, $type, $theme, $path) {
-  // If we are auto-rebuilding the theme registry, warn about the feature.
-  if (
-    // Only display for site config admins.
-    function_exists('user_access') && user_access('administer site configuration')
-    && theme_get_setting('brutus_bootstrap_rebuild_registry')
-    // Always display in the admin section, otherwise limit to three per hour.
-    && (arg(0) == 'admin' || flood_is_allowed($GLOBALS['theme'] . '_rebuild_registry_warning', 3))
-  ) {
-    flood_register_event($GLOBALS['theme'] . '_rebuild_registry_warning');
-    drupal_set_message(t('For easier theme development, the theme registry is being rebuilt on every page request. It is <em>extremely</em> important to <a href="!link">turn off this feature</a> on production websites.', array('!link' => url('admin/appearance/settings/' . $GLOBALS['theme']))), 'warning', FALSE);
-  }
-  
   return array(
     'brutus_bootstrap_links' => array(
       'variables' => array(
@@ -121,7 +114,7 @@ function brutus_bootstrap_process_html_tag(&$variables) {
 function brutus_bootstrap_preprocess_html(&$variables) {
   
   $variables['doctype'] = '<!DOCTYPE html>' . "\n";
-  $variables['html5shiv'] = '<!--[if lt IE 9]><script src="'. base_path() . path_to_theme() .'/js/asset/js/html5shiv.js"></script><![endif]-->';
+  $variables['html5shiv'] = '<!--[if lt IE 9]><script src="' . base_path() . path_to_theme() . '/js/asset/js/html5shiv.js"></script><![endif]-->';
   if (isset($variables['node'])) {
     // For full nodes.
     $variables['classes_array'][] = ($variables['node']) ? 'full-node' : '';
@@ -203,7 +196,8 @@ function brutus_bootstrap_preprocess_html(&$variables) {
           array_pop($variables['classes_array']); // Remove 'section-node'
         }
         $variables['classes_array'][] = 'section-node-add'; // Add 'section-node-add'
-      } elseif (is_numeric(arg(1)) && (arg(2) == 'edit' || arg(2) == 'delete')) {
+      } 
+      elseif (is_numeric(arg(1)) && (arg(2) == 'edit' || arg(2) == 'delete')) {
         if ($section == 'node') {
           array_pop($variables['classes_array']); // Remove 'section-node'
         }
@@ -252,7 +246,7 @@ function brutus_bootstrap_preprocess_page(&$variables) {
   }
   if (isset($variables['node'])) {
     // If the node type is "blog" the template suggestion will be "page--blog.tpl.php".
-     $variables['theme_hook_suggestions'][] = 'page__'. str_replace('_', '--', $variables['node']->type);
+     $variables['theme_hook_suggestions'][] = 'page__' . str_replace('_', '--', $variables['node']->type);
   }
 
 }
@@ -443,7 +437,7 @@ function brutus_bootstrap_process_block(&$variables, $hook) {
 function _brutus_bootstrap_content_span($columns = 1) {
   $class = FALSE;
   
-  switch($columns) {
+  switch ($columns) {
     case 1:
       $class = 'span12';
       break;
