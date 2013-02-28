@@ -20,10 +20,10 @@ ul.primary li a .tab, ul.secondary li a .tab {
   display: inline-block;
 }
 ul.primary li a {
-  background: url('../../images/tabs/tab-left-ie6.png') no-repeat left -38px;
+  background: url('../../images/tabs/tab-left-ie6.png?1361816713') no-repeat left -38px;
 }
 ul.primary li a .tab {
-  background: url('../../images/tabs/tab-right-ie6.png') no-repeat right -38px;
+  background: url('../../images/tabs/tab-right-ie6.png?1361816713') no-repeat right -38px;
 }
 ul.primary li a:hover {
   cursor: pointer;
@@ -35,13 +35,13 @@ ul.primary li a:hover .tab {
   background-position: right -76px;
 }
 ul.primary li.active a {
-  background: url('../../images/tabs/tab-left-ie6.png') no-repeat left 0;
+  background: url('../../images/tabs/tab-left-ie6.png?1361816713') no-repeat left 0;
 }
 ul.primary li.active a:hover {
-  background: url('../../images/tabs/tab-left-ie6.png') no-repeat left 0;
+  background: url('../../images/tabs/tab-left-ie6.png?1361816713') no-repeat left 0;
 }
 ul.primary li.active a .tab, ul.primary li.active a:hover .tab {
-  background: url('../../images/tabs/tab-right-ie6.png') no-repeat right 0;
+  background: url('../../images/tabs/tab-right-ie6.png?1361816713') no-repeat right 0;
 }
 ul.secondary li a:hover {
   cursor: pointer;

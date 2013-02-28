@@ -1,10 +1,14 @@
 name = Brutus Bootstrap with Sass
 description = Built to use Bootstrap, a sleek, intuitive, and powerful front-end framework for faster and easier web development.
 core = 7.x
+dependencies[] = jquery_update
 
 regions[navigation]     = 'Navigation'
 regions[header]         = 'Top Bar'
 regions[highlighted]    = 'Highlighted'
+regions[carousel_home]  = 'Carousel Home'
+regions[banner_home]    = 'Banner Home'
+regions[info_home]      = 'Info Home'
 regions[help]           = 'Help'
 regions[content]        = 'Content'
 regions[sidebar_first]  = 'Primary'
@@ -14,6 +18,7 @@ regions[footer]         = 'Footer'
 stylesheets[all][] = css/style.css
 stylesheets[all][] = css/bootstrap.css
 stylesheets[all][] = css/bootstrap-responsive.css
+stylesheets[all][] = css/home.css
 scripts[] = js/bootstrap-affix.js
 scripts[] = js/bootstrap-transition.js
 scripts[] = js/bootstrap-alert.js
@@ -70,3 +75,4 @@ exclude[css][] = 'modules/taxonomy/taxonomy.css'
 exclude[css][] = 'modules/tracker/tracker.css'
 exclude[css][] = 'modules/update/update.css'
 exclude[css][] = 'modules/user/user.css'
+

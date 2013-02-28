@@ -64,4 +64,19 @@ $html_attributes = "lang=\"{$language->language}\"";
   <?php print $page_bottom; ?>
 </body>
   <?php print $scripts; ?>
+<script>
+      !function ($) {
+        $(function(){
+          // carousel demo
+          $('#myCarousel .item.views-row-1').addClass('active');
+          $('#myCarousel').carousel();
+          $('.featurette h2').addClass('featurette-heading');
+          $('.featurette img:odd').addClass('featurette-image pull-left');
+          $('.featurette img:even').addClass('featurette-image pull-right');
+          $('.featurette .field-name-field-image-ascii pre:odd').addClass('featurette-image pull-left');
+          $('.featurette .field-name-field-image-ascii pre:even').addClass('featurette-image pull-right');
+
+        })
+      }(window.jQuery)
+    </script>
 </html>

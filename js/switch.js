@@ -4,4 +4,5 @@
   var versionName = version.replace(/\./g, '');
   // save the new version of jQuery globally and restore Drupal version
   window.jq_bootstrap = jQuery.noConflict();
+ 
 })(jQuery);
